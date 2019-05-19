@@ -4,6 +4,14 @@ return [
     'Category ID' => "ID категории",
     'Parent ID' => "ID родительской категории",
     'Categories' => "Категории",
-    'Create Category' => "Создать категорию",
-    'Select Category' => "Выберите категорию"
+    'Create Category' => "Добавить категорию",
+    'Select Category' => "Выберите категорию",
+    'Product Title' => "Название товара",
+    'Product ID' => "ID товара",
+    'Product Description' => "Описание товара",
+    'Create Product' => "Добавить товар",
+    'Photos' => "Фотографии",
+    'Create Photo' => "Добавить фотографию",
+    'Photo Src' => "Адрес фотографии",
+    'Photo ID' => "ID фотографии"
 ];
