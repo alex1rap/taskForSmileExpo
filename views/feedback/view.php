@@ -8,15 +8,17 @@ use yii\widgets\DetailView;
 
 /** @var \app\models\Product $product */
 $product = $model->getProduct()->one();
-$this->title = Yii::t('app', 'Feedback for product') . ' «' .
-    Html::a($product->product_title, ['product/view', 'id' => $product->product_id]) . '»';
+$this->title = Yii::t('app', 'Feedback for product').' «'.
+    $product->product_title.'»';
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Feedbacks'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $product->product_title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="feedback-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Yii::t('app', 'Feedback for product').' «'.
+        Html::a($product->product_title, ['product/view', 'id' => $product->product_id]).
+        '»' ?></h1>
 
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->feedback_id], ['class' => 'btn btn-primary']) ?>

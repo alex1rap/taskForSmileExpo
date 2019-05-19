@@ -19,16 +19,16 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <div class="container">
-    <?php
-    $products = $dataProvider->getModels();
-    foreach ($products as $product) :
-    ?>
-    <div class="row">
-        <?= Html::a($product->product_title, ['product/view', 'product_id' => $product->product_id]) ?>
-    </div>
+        <?php
+        $products = $dataProvider->getModels();
+        foreach ($products as $product) :
+            ?>
+            <div class="row">
+                <?= Html::a($product->product_title, ['product/view', 'id' => $product->product_id]) ?>
+            </div>
 
-    <?php
-    endforeach;
-    ?>
-</div>
+        <?php
+        endforeach;
+        ?>
+    </div>
 </div>

@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Category'), 'url' =>
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 $categories = ArrayHelper::map(
-        \app\models\Category::find()->all(),
-        'category_id',
-        'category_title'
+    \app\models\Category::find()->all(),
+    'category_id',
+    'category_title'
 );
 ?>
 <div class="categories-view">
