@@ -1,6 +1,6 @@
 # Task for SmileExpo
 
-## Damp of DB creation:
+## Dump of DB creation:
 ```
 create table if not exists categories
  (
