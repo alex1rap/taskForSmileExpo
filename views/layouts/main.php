@@ -36,9 +36,15 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $urlParams = Yii::$app->request->get();
+    $urlParams[0] = Yii::$app->controller->route;
+    $urlParams['lang'] = Yii::$app->language === 'en-US' ? 'ru-RU' : 'en-US';
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+            (Yii::$app->language === 'en-US') ?
+                ['label' => 'RU', 'url' => $urlParams] :
+                ['label' => 'EN', 'url' => $urlParams],
             ['label' => Yii::t('app', 'Products'), 'url' => ['product/index']],
             ['label' => Yii::t('app', 'Categories'), 'url' => ['category/index']],
             ['label' => Yii::t('app', 'Photos'), 'url' => ['photo/index']],
