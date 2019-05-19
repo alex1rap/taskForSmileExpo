@@ -59,7 +59,7 @@ foreach ($photos as $photo) {
                 'attribute' => Yii::t('app', 'Feedbacks'),
                 'value' => Html::a(Yii::t('app', 'Feedbacks'), [
                     'feedback/index',
-                    '&SearchFeedback[product_id]' => $model->product_id
+                    'SearchFeedback[product_id]' => $model->product_id
                 ]),
                 'format' => 'html'
             ]

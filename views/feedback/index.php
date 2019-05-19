@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'create_date',
             'feedback_author',
             'feedback_email:email',
-            'feedback_text:ntext',
+            'feedback_text:text',
             //'product_id',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'feedback_text') ?>
 
-    <?php // echo $form->field($model, 'product_id') ?>
+    <?= $form->field($model, 'product_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
