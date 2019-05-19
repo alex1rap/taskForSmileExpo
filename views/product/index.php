@@ -23,8 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
     $products = $dataProvider->getModels();
     foreach ($products as $product) :
     ?>
-    <div class="row"></div>
-        echo Html::a($product->product_title, ['product/view', 'product_id' => $product->product_id]);
+    <div class="row">
+        <?= Html::a($product->product_title, ['product/view', 'product_id' => $product->product_id]) ?>
+    </div>
+
     <?php
     endforeach;
     ?>

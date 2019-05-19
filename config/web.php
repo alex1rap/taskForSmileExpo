@@ -50,11 +50,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'product/index',
-                'category/<category_id:\d+>' => 'category/view',
+                'category/<id:\d+>' => 'category/view',
                 'categories' => 'category/index',
-                'product/<product_id:\d+>' => 'product/view',
+                'product/<id:\d+>' => 'product/view',
                 'products' => 'product/index',
-                'photo/<photo_id:\d+>' => 'photo/index',
+                'photo/<id:\d+>' => 'photo/index',
                 'photos' => 'photo/index',
                 'site/' => 'site/index'
             ],
