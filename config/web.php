@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'E-Shop',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -48,7 +49,14 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                "" => "site/index"
+                '' => 'product/index',
+                'category/<id:\d+>' => 'category/view',
+                'categories' => 'category/index',
+                'product/<id:\d+>' => 'product/view',
+                'products' => 'product/index',
+                'photo/<id:\d+>' => 'photo/index',
+                'photos' => 'photo/index',
+                'site/' => 'site/index'
             ],
         ],
     ],
