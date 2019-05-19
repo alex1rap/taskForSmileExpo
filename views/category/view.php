@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -10,6 +11,11 @@ $this->title = $model->category_title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+$categories = ArrayHelper::map(
+        \app\models\Categories::find()->all(),
+        'category_id',
+        'category_title'
+);
 ?>
 <div class="categories-view">
 
@@ -31,7 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'category_id',
             'category_title',
-            'parent_id',
+            [
+                'attribute' => 'parent_id',
+                'value' => $categories[$model->parent_id]
+            ],
         ],
     ]) ?>
 
