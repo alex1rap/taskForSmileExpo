@@ -9,6 +9,7 @@ return [
     'Product Title' => "Название товара",
     'Product ID' => "ID товара",
     'Product Description' => "Описание товара",
+    'Product Price' => "Цена",
     'Products' => "Товары",
     'Create Product' => "Добавить товар",
     'Photos' => "Фотографии",
@@ -20,5 +21,7 @@ return [
     'Feedback Author' => "Имя клиента",
     'Feedback Email' => "Email клиента",
     'Create Date' => "Дата создания",
-    'Create Feedback' => "Добавить отзыв"
+    'Create Feedback' => "Добавить отзыв",
+    'Feedback Text' => 'Сообщение',
+    'UAH' => "грн",
 ];

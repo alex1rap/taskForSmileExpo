@@ -16,7 +16,7 @@ $photos = $model->getPhotos()->all();
 $photosHtml = "";
 foreach ($photos as $photo) {
     $photosHtml .= Html::img($photo->photo_src, [
-            'style' => 'max-width:240px;max-height:240px;'
+        'style' => 'max-width:240px;max-height:240px;'
     ]);
 }
 ?>
@@ -40,14 +40,26 @@ foreach ($photos as $photo) {
         'attributes' => [
             'product_id',
             [
-                    'attribute' => 'product_photos',
+                'attribute' => 'photos',
                 'value' => $photosHtml,
                 'format' => 'html'
             ],
             'product_title',
-            'product_description:ntext',
-            'product_price',
+            'product_description:text',
+            [
+                'attribute' => Yii::t('app', 'Product Price'),
+                'value' => $model->product_price.' '.Yii::t('app', 'UAH').'.',
+                'format' => 'text'
+            ],
             'category_id',
+            [
+                'attribute' => Yii::t('app', 'Feedbacks'),
+                'value' => Html::a(Yii::t('app', 'Feedbacks'), [
+                    'feedback/index',
+                    '&SearchFeedback[product_id]' => $model->product_id
+                ]),
+                'format' => 'html'
+            ]
         ],
     ]) ?>
 
