@@ -13,11 +13,11 @@ use Yii;
  * @property double $product_price
  * @property int $category_id
  *
- * @property Feedbacks[] $feedbacks
- * @property Photos[] $photos
- * @property Categories $category
+ * @property Feedback[] $feedbacks
+ * @property Photo[] $photos
+ * @property Category $category
  */
-class Products extends \yii\db\ActiveRecord
+class Product extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -39,7 +39,7 @@ class Products extends \yii\db\ActiveRecord
             [['category_id'], 'integer'],
             [['product_title'], 'string', 'max' => 32],
             [['product_title'], 'unique'],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::className(), 'targetAttribute' => ['category_id' => 'category_id']],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'category_id']],
         ];
     }
 
@@ -62,7 +62,7 @@ class Products extends \yii\db\ActiveRecord
      */
     public function getFeedbacks()
     {
-        return $this->hasMany(Feedbacks::className(), ['product_id' => 'product_id']);
+        return $this->hasMany(Feedback::className(), ['product_id' => 'product_id']);
     }
 
     /**
@@ -70,7 +70,7 @@ class Products extends \yii\db\ActiveRecord
      */
     public function getPhotos()
     {
-        return $this->hasMany(Photos::className(), ['product_id' => 'product_id']);
+        return $this->hasMany(Photo::className(), ['product_id' => 'product_id']);
     }
 
     /**
@@ -78,6 +78,6 @@ class Products extends \yii\db\ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(Categories::className(), ['category_id' => 'category_id']);
+        return $this->hasOne(Category::className(), ['category_id' => 'category_id']);
     }
 }

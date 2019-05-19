@@ -11,9 +11,9 @@ use Yii;
  * @property string $category_title
  * @property int $parent_id
  *
- * @property Products[] $products
+ * @property Product[] $products
  */
-class Categories extends \yii\db\ActiveRecord
+class Category extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -53,6 +53,6 @@ class Categories extends \yii\db\ActiveRecord
      */
     public function getProducts()
     {
-        return $this->hasMany(Products::className(), ['category_id' => 'category_id']);
+        return $this->hasMany(Product::className(), ['category_id' => 'category_id']);
     }
 }

@@ -5,14 +5,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Categories */
+/* @var $model app\models\Category */
 
 $this->title = $model->category_title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Category'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 $categories = ArrayHelper::map(
-        \app\models\Categories::find()->all(),
+        \app\models\Category::find()->all(),
         'category_id',
         'category_title'
 );

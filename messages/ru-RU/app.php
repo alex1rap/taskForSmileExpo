@@ -9,6 +9,7 @@ return [
     'Product Title' => "Название товара",
     'Product ID' => "ID товара",
     'Product Description' => "Описание товара",
+    'Products' => "Товары",
     'Create Product' => "Добавить товар",
     'Photos' => "Фотографии",
     'Create Photo' => "Добавить фотографию",

@@ -14,9 +14,9 @@ use Yii;
  * @property string $feedback_text
  * @property int $product_id
  *
- * @property Products $product
+ * @property Product $product
  */
-class Feedbacks extends \yii\db\ActiveRecord
+class Feedback extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -38,7 +38,7 @@ class Feedbacks extends \yii\db\ActiveRecord
             [['product_id'], 'integer'],
             [['feedback_author'], 'string', 'max' => 16],
             [['feedback_email'], 'string', 'max' => 32],
-            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['product_id' => 'product_id']],
+            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'product_id']],
         ];
     }
 
@@ -62,6 +62,6 @@ class Feedbacks extends \yii\db\ActiveRecord
      */
     public function getProduct()
     {
-        return $this->hasOne(Products::className(), ['product_id' => 'product_id']);
+        return $this->hasOne(Product::className(), ['product_id' => 'product_id']);
     }
 }
