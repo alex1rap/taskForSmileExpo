@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\SearchProducts */
+/* @var $searchModel app\models\SearchProduct */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Product');
+$this->title = Yii::t('app', 'Products');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="products-index">
@@ -15,26 +15,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create Products'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Product'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'product_id',
-            'product_title',
-            'product_description:ntext',
-            'product_price',
-            'category_id',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+    <div class="container">
+    <?php
+    $products = $dataProvider->getModels();
+    foreach ($products as $product) :
+    ?>
+    <div class="row"></div>
+        echo Html::a($product->product_title, ['product/view', 'product_id' => $product->product_id]);
+    <?php
+    endforeach;
+    ?>
+</div>
 </div>

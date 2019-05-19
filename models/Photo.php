@@ -11,9 +11,9 @@ use Yii;
  * @property string $photo_src
  * @property int $product_id
  *
- * @property Products $product
+ * @property Product $product
  */
-class Photos extends \yii\db\ActiveRecord
+class Photo extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -32,7 +32,7 @@ class Photos extends \yii\db\ActiveRecord
             [['photo_src', 'product_id'], 'required'],
             [['product_id'], 'integer'],
             [['photo_src'], 'string', 'max' => 255],
-            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['product_id' => 'product_id']],
+            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'product_id']],
         ];
     }
 
@@ -53,6 +53,6 @@ class Photos extends \yii\db\ActiveRecord
      */
     public function getProduct()
     {
-        return $this->hasOne(Products::className(), ['product_id' => 'product_id']);
+        return $this->hasOne(Product::className(), ['product_id' => 'product_id']);
     }
 }

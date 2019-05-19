@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Products;
+use app\models\Photo;
 
 /**
- * SearchProducts represents the model behind the search form of `app\models\Products`.
+ * SearchPhoto represents the model behind the search form of `app\models\Photo`.
  */
-class SearchProducts extends Products
+class SearchPhoto extends Photo
 {
     /**
      * {@inheritdoc}
@@ -17,9 +17,8 @@ class SearchProducts extends Products
     public function rules()
     {
         return [
-            [['product_id', 'category_id'], 'integer'],
-            [['product_title', 'product_description'], 'safe'],
-            [['product_price'], 'number'],
+            [['photo_id', 'product_id'], 'integer'],
+            [['photo_src'], 'safe'],
         ];
     }
 
@@ -41,7 +40,7 @@ class SearchProducts extends Products
      */
     public function search($params)
     {
-        $query = Products::find();
+        $query = Photo::find();
 
         // add conditions that should always apply here
 
@@ -59,13 +58,11 @@ class SearchProducts extends Products
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'photo_id' => $this->photo_id,
             'product_id' => $this->product_id,
-            'product_price' => $this->product_price,
-            'category_id' => $this->category_id,
         ]);
 
-        $query->andFilterWhere(['like', 'product_title', $this->product_title])
-            ->andFilterWhere(['like', 'product_description', $this->product_description]);
+        $query->andFilterWhere(['like', 'photo_src', $this->photo_src]);
 
         return $dataProvider;
     }

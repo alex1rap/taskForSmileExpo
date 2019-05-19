@@ -38,9 +38,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Products', 'url' => ['product/index']],
-            ['label' => 'Categories', 'url' => ['category/index']],
-            ['label' => 'Photos', 'url' => ['photo/index']],
+            ['label' => 'Product', 'url' => ['product/index']],
+            ['label' => 'Category', 'url' => ['category/index']],
+            ['label' => 'Photo', 'url' => ['photo/index']],
         ],
     ]);
     NavBar::end();

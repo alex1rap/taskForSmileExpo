@@ -3,14 +3,14 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Photos;
-use app\models\SearchPhotos;
+use app\models\Photo;
+use app\models\SearchPhoto;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PhotoController implements the CRUD actions for Photos model.
+ * PhotoController implements the CRUD actions for Photo model.
  */
 class PhotoController extends Controller
 {
@@ -30,12 +30,12 @@ class PhotoController extends Controller
     }
 
     /**
-     * Lists all Photos models.
+     * Lists all Photo models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SearchPhotos();
+        $searchModel = new SearchPhoto();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Displays a single Photos model.
+     * Displays a single Photo model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class PhotoController extends Controller
     }
 
     /**
-     * Creates a new Photos model.
+     * Creates a new Photo model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Photos();
+        $model = new Photo();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->photo_id]);
@@ -76,7 +76,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Updates an existing Photos model.
+     * Updates an existing Photo model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class PhotoController extends Controller
     }
 
     /**
-     * Deletes an existing Photos model.
+     * Deletes an existing Photo model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class PhotoController extends Controller
     }
 
     /**
-     * Finds the Photos model based on its primary key value.
+     * Finds the Photo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Photos the loaded model
+     * @return Photo the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Photos::findOne($id)) !== null) {
+        if (($model = Photo::findOne($id)) !== null) {
             return $model;
         }
 
