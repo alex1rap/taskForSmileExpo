@@ -7,7 +7,10 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Product */
 
 $this->title = $model->product_title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Product'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = [
+    'label' => Yii::t('app', 'Products'),
+    'url' => ['index']
+];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 
@@ -16,7 +19,7 @@ $photos = $model->getPhotos()->all();
 $photosHtml = "";
 foreach ($photos as $photo) {
     $photosHtml .= Html::img($photo->photo_src, [
-        'style' => 'max-width:240px;max-height:240px;'
+        'style' => 'max-width: 240px; max-height: 240px;'
     ]);
 }
 ?>

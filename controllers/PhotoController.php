@@ -5,14 +5,13 @@ namespace app\controllers;
 use Yii;
 use app\models\Photo;
 use app\models\SearchPhoto;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * PhotoController implements the CRUD actions for Photo model.
  */
-class PhotoController extends Controller
+class PhotoController extends LangController
 {
     /**
      * {@inheritdoc}
