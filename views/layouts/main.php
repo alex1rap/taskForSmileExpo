@@ -39,9 +39,9 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Product', 'url' => ['product/index']],
-            ['label' => 'Category', 'url' => ['category/index']],
-            ['label' => 'Photo', 'url' => ['photo/index']],
+            ['label' => Yii::t('app', 'Products'), 'url' => ['product/index']],
+            ['label' => Yii::t('app', 'Categories'), 'url' => ['category/index']],
+            ['label' => Yii::t('app', 'Photos'), 'url' => ['photo/index']],
         ],
     ]);
     NavBar::end();

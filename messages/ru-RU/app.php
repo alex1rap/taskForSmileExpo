@@ -24,4 +24,6 @@ return [
     'Create Feedback' => "Добавить отзыв",
     'Feedback Text' => 'Сообщение',
     'UAH' => "грн",
+    'Buy' => "Купить",
+    'Details' => "Подробнее",
 ];
