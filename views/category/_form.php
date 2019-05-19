@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category_title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'category_description')->textInput() ?>
+
     <?= $form->field($model, 'parent_id')->textInput() ?>
 
     <div class="form-group">

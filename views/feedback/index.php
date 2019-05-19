@@ -8,11 +8,24 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Feedbacks');
+$product = null;
+if ($product = $searchModel->getProduct()->one()) {
+    $this->title = Yii::t('app', 'Feedbacks For Product: {name}', [
+        'name' => $product->product_title
+    ]);
+}
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="feedback-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= $product === null ?
+            Yii::t('app', 'Feedbacks') :
+            Yii::t('app', 'Feedbacks For Product: {name}', [
+                'name' => Html::a($product->product_title, [
+                    'product/view',
+                    'id' => $product->product_id
+                ])
+            ]) ?></h1>
 
     <p>
         <?= Html::a(

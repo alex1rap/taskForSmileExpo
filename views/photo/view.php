@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Photo */
 
 $this->title = $model->getProduct()->one()->product_title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Photo'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Photos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

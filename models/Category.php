@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $category_id
  * @property string $category_title
+ * @property string $category_description
  * @property int $parent_id
  *
  * @property Product[] $products
@@ -30,6 +31,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             [['category_title'], 'required'],
+            [['category_description'], 'string'],
             [['parent_id'], 'integer'],
             [['category_title'], 'string', 'max' => 32],
             [['category_title'], 'unique'],
@@ -44,6 +46,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             'category_id' => Yii::t('app', 'Category ID'),
             'category_title' => Yii::t('app', 'Category Title'),
+            'category_description' => Yii::t('app', 'Category Description'),
             'parent_id' => Yii::t('app', 'Parent ID'),
         ];
     }
@@ -54,5 +57,10 @@ class Category extends \yii\db\ActiveRecord
     public function getProducts()
     {
         return $this->hasMany(Product::className(), ['category_id' => 'category_id']);
+    }
+
+    public function getParentCategory()
+    {
+        return $this->hasOne(Category::className(), ['category_id' => 'parent_id']);
     }
 }

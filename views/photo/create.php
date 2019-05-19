@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Photo */
 
 $this->title = Yii::t('app', 'Create Photo');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Photo'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Photos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="photos-create">

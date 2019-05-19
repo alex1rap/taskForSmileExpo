@@ -1,18 +1,20 @@
 <?php
 
+use app\models\Category;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\web\YiiAsset;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Category */
 
 $this->title = $model->category_title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Category'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+YiiAsset::register($this);
 $categories = ArrayHelper::map(
-    \app\models\Category::find()->all(),
+    Category::find()->all(),
     'category_id',
     'category_title'
 );
@@ -37,9 +39,11 @@ $categories = ArrayHelper::map(
         'attributes' => [
             'category_id',
             'category_title',
+            'category_description',
             [
-                'attribute' => 'parent_id',
-                'value' => $categories[$model->parent_id]
+                'attribute' => Yii::t('app', 'Parent Category Name'),
+                'value' => $model->getParentCategory()->one()->category_title,
+                'format' => 'html'
             ],
         ],
     ]) ?>

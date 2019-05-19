@@ -10,12 +10,6 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
-/** @var \app\models\Category[] $categories */
-$categories = ArrayHelper::map(
-    \app\models\Category::find()->all(),
-    'category_id',
-    'category_title'
-);
 ?>
 <div class="categories-index">
 
@@ -33,6 +27,7 @@ $categories = ArrayHelper::map(
 
             'category_id',
             'category_title',
+            'category_description',
 
             ['class' => 'yii\grid\ActionColumn',],
         ],

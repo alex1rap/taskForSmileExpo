@@ -18,7 +18,7 @@ class SearchCategory extends Category
     {
         return [
             [['category_id', 'parent_id'], 'integer'],
-            [['category_title'], 'safe'],
+            [['category_title', 'category_description'], 'safe']
         ];
     }
 
@@ -60,9 +60,11 @@ class SearchCategory extends Category
         $query->andFilterWhere([
             'category_id' => $this->category_id,
             'parent_id' => $this->parent_id,
+            'category_description' => $this->category_description
         ]);
 
         $query->andFilterWhere(['like', 'category_title', $this->category_title]);
+        $query->andFilterWhere(['like', 'category_description', $this->category_description]);
 
         return $dataProvider;
     }
