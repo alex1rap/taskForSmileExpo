@@ -11,6 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Product'), 'url' => 
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 
+/** @var \app\models\Photo[] $photos */
 $photos = $model->getPhotos()->all();
 $photosHtml = "";
 foreach ($photos as $photo) {

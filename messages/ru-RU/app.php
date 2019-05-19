@@ -14,5 +14,11 @@ return [
     'Photos' => "Фотографии",
     'Create Photo' => "Добавить фотографию",
     'Photo Src' => "Адрес фотографии",
-    'Photo ID' => "ID фотографии"
+    'Photo ID' => "ID фотографии",
+    'Feedbacks' => "Отзывы",
+    'Feedback ID' => "ID отзыва",
+    'Feedback Author' => "Имя клиента",
+    'Feedback Email' => "Email клиента",
+    'Create Date' => "Дата создания",
+    'Create Feedback' => "Добавить отзыв"
 ];

@@ -10,6 +10,7 @@ use yii\grid\GridView;
 
 $this->title = Yii::t('app', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
+/** @var \app\models\Category[] $categories */
 $categories = ArrayHelper::map(
     \app\models\Category::find()->all(),
     'category_id',
