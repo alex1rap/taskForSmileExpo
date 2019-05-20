@@ -54,6 +54,7 @@ class Product extends \yii\db\ActiveRecord
             'product_description' => Yii::t('app', 'Product Description'),
             'product_price' => Yii::t('app', 'Product Price'),
             'category_id' => Yii::t('app', 'Category ID'),
+            'product_photos' => Yii::t('app', 'Photos'),
         ];
     }
 
