@@ -43,7 +43,7 @@ foreach ($photos as $photo) {
         'attributes' => [
             'product_id',
             [
-                'attribute' => 'photos',
+                'attribute' => 'product_photos',
                 'value' => $photosHtml,
                 'format' => 'html'
             ],
